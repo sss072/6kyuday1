@@ -32,3 +32,25 @@ def persistence(n):
         return persistence(result)
         
 persistence(39)
+
+
+# Welcome.
+
+# In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+# If anything in the text isn't a letter, ignore it and don't return it.
+
+# "a" = 1, "b" = 2, etc.    
+
+def alphabet_position(text):
+    text = list(text.lower())
+    for i in range(len(text)):
+        if text[i].isalpha():
+            text[i] = ord(text[i]) - 96
+        else:
+            text[i] = '!'
+    while '!' in text:
+        text.remove('!')
+    string_ints = [str(int) for int in text]
+    return ' '.join(string_ints)
+            
