@@ -75,3 +75,17 @@ def order(sentence):
     return ' '.join(result)
     
 order("is2 Thi1s T4est 3a")
+
+
+
+# Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible,
+#  containing distinct letters - each taken only once - coming from s1 or s2.
+
+def longest(a1, a2):
+    new = a1 + a2
+    result = []
+    for x in new:
+        if x not in result:
+            result.append(x)
+    result.sort()
+    return ''.join(result)
