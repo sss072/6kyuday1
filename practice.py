@@ -125,3 +125,41 @@ def disemvowel(string_):
     
     
     return final
+
+
+# A pangram is a sentence that contains every single letter of the alphabet at least once. 
+# For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, 
+# because it uses the letters A-Z at least once (case is irrelevant).
+
+# Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+import string
+
+def is_pangram(s):
+    s = list(s.lower())
+    s.sort()
+    for i in range(len(s)-1):
+        if s[i].isalpha():
+            if s[i].lower() == s[i+1].lower():
+                pass
+            elif ord(s[i+1].lower()) - ord(s[i].lower()) == 1:
+                pass
+            else:
+                return False
+    return True
+
+# Find the unique number (this kata)
+
+def find_uniq(arr):
+
+    for i in range(len(arr)): 
+        if i == len(arr) - 2:
+            if arr[i] == arr[i-1]:
+                return arr[i+1]
+            else:
+                return arr[i]
+        elif arr[i] == arr[i+1]:
+            pass
+        else:
+            if arr[i] == arr[i+2]:
+                return arr[i+1]
+            return arr[i]
