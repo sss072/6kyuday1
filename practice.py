@@ -163,3 +163,48 @@ def find_uniq(arr):
             if arr[i] == arr[i+2]:
                 return arr[i+1]
             return arr[i]
+
+
+
+# Complete the solution so 
+# that it splits the string into pairs
+#  of two characters. If the string 
+#  contains an odd number of characters 
+#  then it should replace the missing second character of the final pair with an underscore ('_').
+
+def solution(s):
+    result = []
+    if s == '':
+        return []
+    elif len(s) == 1:
+        result.append(s[0]+'_')
+        return result
+    elif len(s) % 2 == 0:
+        for i in range(0,len(s),2):
+            result.append(s[i]+s[i+1])
+        return result
+    else:
+        for i in range(0,len(s),2):
+            if i == len(s) - 1:
+                result.append(s[i]+'_')
+            else:
+                result.append(s[i]+s[i+1])
+        return result
+            
+
+# You will be given an array of numbers. You have to sort the odd numbers in ascending 
+# order while leaving the even numbers at their original positions.
+
+def sort_array(source_array):
+    copy = []
+    for i in range(len(source_array)):
+        if source_array[i] % 2 != 0:
+            copy.append(source_array[i])
+            source_array[i] = '!'
+    copy.sort()
+    counter = 0
+    for i in range(len(source_array)):
+        if source_array[i] == "!":
+            source_array[i] = copy[counter]
+            counter += 1
+    return source_array
