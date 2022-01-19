@@ -216,7 +216,7 @@ def sort_array(source_array):
 #  is the number of times it appears). "Same" means, here, that the elements in b
 #   are the elements in a squared, regardless of the order.
 
-    def comp(array1, array2):
+def comp(array1, array2):
     try:
         return sorted([i ** 2 for i in array1]) == sorted(array2)
     except:
@@ -233,3 +233,30 @@ def is_prime(num):
             return False
         i += 1
     return True
+
+
+# Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether 
+# the two arrays have the "same" elements, with the same multiplicities (the multiplicity of
+#  a member is the number of times it appears). "Same" means, here, that the elements in b are
+#   the elements in a squared, regardless of the order.
+
+def comp(array1, array2):
+    try:
+        return sorted([i ** 2 for i in array1]) == sorted(array2)
+    except:
+        return False
+
+
+# You will be given a number and you will need to return it as a string in Expanded Form. 
+
+def expanded_form(num):
+    num = str(num)
+    result = []
+    for i in range(len(num)):
+        if i == len(num) - 1:
+            if num[i] != '0':
+                result.append(num[i])
+        elif num[i] != '0':
+            space_after = len(num[i+1:])
+            result.append(num[i] + ('0' * space_after))
+    return ' + '.join(result)
