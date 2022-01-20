@@ -260,3 +260,48 @@ def expanded_form(num):
             space_after = len(num[i+1:])
             result.append(num[i] + ('0' * space_after))
     return ' + '.join(result)
+
+# Complete the solution so that the function will break up camel casing, 
+# using a space between words.
+
+
+def solution(s):
+    s = list(s)
+    place_holder = ''
+    counter = 0
+    for i in range(len(s)):
+        if i == 0:
+            pass
+        elif s[i] == s[i].upper():
+            place_holder += ''.join(s[counter:i])
+            place_holder += ' '
+            counter = i
+    place_holder += ''.join(s[counter:])
+    return place_holder
+
+# The number 89 is the first integer with more than one digit that fulfills the property 
+# partially introduced in the title of this kata. What's the use of saying "Eureka"? 
+# Because this sum gives the same number.
+
+# In effect: 89 = 8^1 + 9^2
+
+# The next number in having this property is 135.
+
+# See this property again: 135 = 1^1 + 3^2 + 5^3
+
+# We need a function to collect these numbers, that may receive two integers a, b that 
+# defines the range [a, b] (inclusive) and outputs a list of the sorted numbers in the range that 
+# fulfills the property described above.
+
+def sum_dig_pow(a, b): 
+    result = []
+    for x in range(a,b+1):
+        x = str(x)
+        counter = 1
+        compare = []
+        for i in x:
+            compare.append(int(i) ** counter)
+            counter += 1
+        if sum(compare) == int(x):
+            result.append(int(x))
+    return result
