@@ -305,3 +305,38 @@ def sum_dig_pow(a, b):
         if sum(compare) == int(x):
             result.append(int(x))
     return result
+
+
+# The input is a string str of digits. 
+# Cut the string into chunks (a chunk here is a substring of the initial string) 
+# of size sz (ignore the last chunk if its size is less than sz).
+
+# If a chunk represents an integer such as the sum of the cubes of its digits is 
+# divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. 
+# Put together these modified chunks and return the result as a string.
+
+
+
+
+def revrot(strng, sz):
+    if sz == 0 or sz > len(strng) or strng == '':
+        return ''
+    else:
+        result = ''
+        flag = True
+        while flag:
+            if len(strng) >= sz:
+                checker = strng[:sz]
+                strng = strng[sz:]
+                final = [int(x) ** 3 for x in checker]
+                if sum(final) % 2 == 0:
+                    checker = checker[::-1]
+                    for i in checker:
+                        result += i
+                else:
+                    final = checker[1:]
+                    final += checker[0]
+                    result += final
+            else:
+                flag = False
+        return result
