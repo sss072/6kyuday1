@@ -340,3 +340,14 @@ def revrot(strng, sz):
             else:
                 flag = False
         return result
+
+# Write simple .camelCase method 
+# (camel_case function in PHP, CamelCase in C# or camelCase in Java) for strings. 
+# All words must have their first letter capitalized without spaces.
+def camel_case(string):
+    string = string.split()
+    if string == '':
+        return ''
+    for x in range(len(string)):
+        string[x] = string[x].capitalize()
+    return ''.join(string)
