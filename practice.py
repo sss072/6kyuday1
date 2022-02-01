@@ -367,3 +367,23 @@ def two_sum(numbers, target):
         for y in range(x+1,len(numbers)):
             if numbers[x] + numbers[y] == target:
                 return (x,y)
+
+
+
+# Write a function which takes numbers num1 and num2 and returns 1 if there 
+# is a straight triple of a number at any place in num1 and also a straight double of the same number in num2.
+# If this isn't the case, return 0
+
+def triple_double(num1, num2):
+    num1 = str(num1)
+    num2 = str(num2)
+    flag = 0
+    var = 0
+    for i in range(len(num1)-2):
+        if num1[i] == num1[i+1] and num1[i] == num1[i+2]:
+            flag = 1
+            var = num1[i]
+    for i in range(len(num2)-1):
+        if num2[i] == var and num2[i] == num2[i+1] and flag == 1:
+            return flag 
+    return 0
