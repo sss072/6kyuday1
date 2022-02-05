@@ -387,3 +387,33 @@ def triple_double(num1, num2):
         if num2[i] == var and num2[i] == num2[i+1] and flag == 1:
             return flag 
     return 0
+
+# Write a function that accepts a string, and returns true if it is in the form of a phone number.
+# Assume that any integer from 0-9 in any of the spots will produce a valid phone number.
+
+# Only worry about the following format:
+# (123) 456-7890 (don't forget the space after the close parentheses)
+
+
+import re
+def valid_phone_number(phone_number):
+    if len(phone_number) == 14:
+        if phone_number[0] == '(' and phone_number[4] == ')':
+            if phone_number[1].isdigit() and phone_number[2].isdigit() and phone_number[3].isdigit():
+                if phone_number[6].isdigit() and phone_number[7].isdigit() and phone_number[8].isdigit():
+                    if phone_number[10].isdigit() and phone_number[11].isdigit() and phone_number[12].isdigit() and phone_number[13].isdigit():
+                        if phone_number[5] == ' ' and phone_number[9] == '-':
+                            return True
+                        else:
+                            return False
+                    else:
+                        return False
+                else:
+                    return False
+            else:
+                return False                
+        else:
+            return False
+    else:
+        return False
+                    
