@@ -417,3 +417,25 @@ def valid_phone_number(phone_number):
     else:
         return False
                     
+# Write a simple parser that will parse and run Deadfish.
+
+# Deadfish has 4 commands, each 1 character long:
+
+# i increments the value (initially 0)
+# d decrements the value
+# s squares the value
+# o outputs the value into the return array
+
+def parse(data):
+    total = 0
+    result = []
+    for x in data:
+        if x == 'i':
+            total += 1
+        elif x == 'd':
+            total -= 1
+        elif x == 's':
+            total = total ** 2
+        elif x == 'o':
+            result.append(total)
+    return result
