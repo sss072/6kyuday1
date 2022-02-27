@@ -458,3 +458,9 @@ def solve(s):
     all_values = result.values()
     max_value = max(all_values)
     return max_value
+
+def is_triangle(a, b, c):
+    if a + b > c and a + c > b and b + c > a:
+        return True
+    else:
+        return False
