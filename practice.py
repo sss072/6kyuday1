@@ -464,3 +464,11 @@ def is_triangle(a, b, c):
         return True
     else:
         return False
+
+
+def number(bus_stops):
+    counter = 0
+    for x in bus_stops:
+        counter += x[0]
+        counter -= x[1]
+    return counter
