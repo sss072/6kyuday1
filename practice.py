@@ -482,3 +482,24 @@ def divisors(integer):
         return f"{integer} is prime"
     else:
         return result
+
+# function feast(beast, dish) {
+#   if (beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1]) {
+#     return true
+# } else {
+#     return false
+# }
+# }
+
+
+
+# sort array by string length 
+def sort_by_length(arr):
+    dict = {}
+    for x in arr:
+        dict[x] = len(x)
+    result = []
+    for x in arr:
+        result.append(min(dict, key=dict.get))
+        del dict[min(dict, key=dict.get)]
+    return result
